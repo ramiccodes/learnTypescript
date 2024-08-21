@@ -76,7 +76,7 @@ type Manager = { id: number; name: string; employees: Employee[] };
 
 type Staff = Employee | Manager;
 
-const printStaffDetails = (s: Staff) => {
+const printStaffDetails = (s: Staff): void => {
   if (s.employees) {
     console.log(
       `This staff member is a manager. They manage ${s.employees.length} employees`
@@ -114,3 +114,16 @@ const bob: Manager = {
 
 printStaffDetails(alice);
 printStaffDetails(bob);
+
+// Type alias also support computed properties
+const propName = "age";
+
+let tiger = { [propName]: 5 };
+
+// propName = age
+// so, {"age": 5}
+// If we change the value of propName, it would update the type
+
+type Animal = {
+  [propName]: number;
+};
