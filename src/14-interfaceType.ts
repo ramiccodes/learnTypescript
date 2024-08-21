@@ -8,6 +8,7 @@ interface Book {
   // method
   printAuthor(): void;
   printTitle(message: string): string;
+  printSomething: (someValue: number) => number;
 }
 
 const deepWork: Book = {
@@ -16,11 +17,28 @@ const deepWork: Book = {
   author: "cal newport",
   genre: "self-help",
   // price: 800
-  printAuthor() {
-    console.log(this.author);
-  },
+  // printAuthor() {
+  //   console.log(this.author);
+  // },
   printTitle(message) {
     return `${this.title} ${message}`;
+  },
+  // first option
+  // printSomething: function (someValue: number) {
+  //   return someValue;
+  // },
+  // second option
+  // printSomething: (someValue) => {
+  //   console.log(deepWork.author);
+  //   return someValue;
+  //   // arrow function is gonna capture the global 'this' unlike the regular fucntion
+  // },
+  // third option
+  // printSomething(someValue) {
+  //   return someValue;
+  // },
+  printAuthor: () => {
+    console.log(deepWork.author);
   },
 };
 
@@ -28,3 +46,8 @@ const deepWork: Book = {
 deepWork.printAuthor();
 const result = deepWork.printTitle(`is an awesome book`);
 console.log(result);
+// const result2 = deepWork.printSomething(34);
+// console.log(result2);
+
+// Another way of setting up methods in interfaces
+// Example printSomething method above, utilizing arrow function syntax
