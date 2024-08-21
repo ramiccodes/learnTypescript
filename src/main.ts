@@ -8,6 +8,7 @@ import "./9-optionalAndDefaultParams.ts";
 import "./10-noReturnFunc.ts";
 import "./11-objAsParams.ts";
 import "./12-typeAlias.ts";
+import "./14-interfaceType.ts";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
