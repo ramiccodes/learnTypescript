@@ -2,13 +2,14 @@ import "./style.css";
 import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
-import "./1-tutorial.ts";
-import "./8-functions.ts";
-import "./9-optionalAndDefaultParams.ts";
-import "./10-noReturnFunc.ts";
-import "./11-objAsParams.ts";
-import "./12-typeAlias.ts";
-import "./14-interfaceType.ts";
+// import "./1-tutorial.ts";
+// import "./8-functions.ts";
+// import "./9-optionalAndDefaultParams.ts";
+// import "./10-noReturnFunc.ts";
+// import "./11-objAsParams.ts";
+// import "./12-typeAlias.ts";
+// import "./14-interfaceType.ts";
+import "./15-interfaceChallenge.ts";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
