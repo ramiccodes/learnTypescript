@@ -75,7 +75,7 @@ const macbookPro: Computer = {
   brand: "apple",
   ram: 8,
   upgradeRam(ram) {
-    return (this.ram = ram);
+    return (this.ram += ram);
   },
 };
 
@@ -100,3 +100,57 @@ console.log(razerBlade.ram);
 razerBlade.upgradeRam(64);
 
 console.log(razerBlade.ram);
+
+// Interface merging
+// Most likely you're not going to do it on the same, only if you are getting the interface from somewhere
+
+interface Person {
+  name: string;
+  getDetails(): string;
+}
+
+interface DogOwner {
+  dogName: string;
+  getDogDetails(): string;
+}
+
+interface Person {
+  age: number;
+}
+
+// age property doesn't currently exist on Person interface
+const person: Person = {
+  name: "john",
+  age: 30,
+  getDetails() {
+    return `Name: ${this.name}, Age: ${this.age}`;
+  },
+};
+console.log(person.getDetails());
+
+// Extending an interface
+
+// "extends" keyword helps extend that interface to include all the properties and methods from a different specified interface
+// any additional properties and methods added to this will be included in the new interface
+// Example: Since the "Employee" interface extends "Person", the "Employee" interface will now include:
+//  interface Employee {
+//    name: string;
+//    age: number;
+//    getDetails(): string;
+//    employeeId: number;
+// }
+interface Employee extends Person {
+  employeeId: number;
+}
+// Jane, an employee is also classified as a person, so she should be able to access properties and methods from the
+// Person interface but also having extra as an employee
+const employee: Employee = {
+  name: "jane",
+  age: 27,
+  employeeId: 123,
+  getDetails() {
+    return `Name: ${this.name}, Age: ${this.age}, Employee ID: ${this.employeeId}`;
+  },
+};
+
+console.log(employee.getDetails());
