@@ -154,3 +154,27 @@ const employee: Employee = {
 };
 
 console.log(employee.getDetails());
+
+interface Manager extends Person, DogOwner {
+  managePeople(): void;
+}
+
+// Manager Bob is a Person and a DogOwner
+const manager: Manager = {
+  name: "bob",
+  age: 35,
+  dogName: "pucholo",
+  getDetails() {
+    return `Name: ${this.name}, Age: ${this.age}`;
+  },
+  getDogDetails() {
+    return `Name: ${this.dogName}`;
+  },
+  managePeople() {
+    console.log(`Managing people...`);
+  },
+};
+
+manager.managePeople();
+console.log(manager.getDetails());
+console.log(manager.getDogDetails());
